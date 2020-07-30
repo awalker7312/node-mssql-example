@@ -1,11 +1,12 @@
 const express = require("express");
 const app = express();
 const sql = require("mssql");
+const dotenv = require('dotenv').config();
 
 app.get("/", (req, res) => {
   var dbConfig = {
-    user: "sa",
-    password: "oldshoe46",
+    user: process.env.DBUSERNAME,
+    password: process.env.DBPASSWORD,
     server: "localhost",
     database: "SampleDB",
   };
